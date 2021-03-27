@@ -1,9 +1,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="pC2le32KaKDSGh9V637p5YC81zixbAMyKN3nPqkKscE" />
-  <script data-ad-client="ca-pub-3454014140664886" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
   <meta name="description" content="{{ if .IsNode }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
   {{hugo.Generator}}
 
@@ -57,6 +54,13 @@
   <link rel="stylesheet" href="/css/dw-burn.css" media="screen">
   <link rel="stylesheet" href="/css/dw-menu.css" media="screen">
 
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
+
   <!-- MathJax -->
   {{ partial "mathjax.html" . }}
 
@@ -66,12 +70,12 @@
  {{ end }}
 
   {{ with .Site.Params.highlightjs }}
-  <link async rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{{ . }}.min.css" media="screen">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <link async rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/{{ . }}.min.css" media="screen">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
   {{ range $.Site.Params.highlightjs_extra_languages }}
-  <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{ . }}.min.js"></script>
+  <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/{{ . }}.min.js"></script>
   {{ end }}
-  <script>hljs.initHighlightingOnLoad();</script>
+  <script>hljs.highlightAll();</script>
   {{ end }}
 
   {{ partial "favicon.html" . }}
@@ -90,7 +94,5 @@
         <script defer src="{{ $.Site.BaseURL }}{{ . }}"></script>
     {{ end }}
   {{ end }}
-
-  <link async rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/all.css" media="screen">
-
+  {{ partial "extra_header.html" . }}
 </head>
