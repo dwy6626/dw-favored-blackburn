@@ -11,6 +11,7 @@
   other = "Read more"
 
 [ReadingTime]
+  one = "{{ .Count }} min."
   other = "{{ .Count }} min."
 
 [ReadAbout]
