@@ -1,9 +1,8 @@
-{{ partial "header.html" . }}
+{{ define "title" }}
+  {{ T .Title }}
+{{ end }}
 
-<div class="header">
-  <h1>{{ T .Title }}</h1>
-</div>
-<div class="content">
+{{ define "main" }}
   {{ with .Site.GetPage "section" "post" }}
     {{ range .RegularPages.GroupByDate "2006" }}
       <h2>{{ .Key }}</h2>
@@ -14,6 +13,4 @@
       </ul>
     {{ end }}
   {{ end }}
-</div>
-
-{{ partial "footer.html" . }}
+{{ end }}

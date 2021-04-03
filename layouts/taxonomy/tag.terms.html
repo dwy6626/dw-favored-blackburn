@@ -1,19 +1,19 @@
-{{ partial "header.html" . }}
+{{ define "title" }}
+  {{ T .Title }}
+{{ end }}
 
-<div class="header">
-  <h1>{{ T .Title }}</h1>
-</div>
-<div class="content">
-  <ul>
-    {{ range $key, $value := .Data.Terms.ByCount }}
-    <li>
-      <a href="{{ $value.Name | urlize }}">
-        <i class="fas fa-tag fa-fw"></i>&nbsp;{{ $value.Name }}
-      </a>
-      <span>&#40;{{ $value.Count }}&#41;</span>
-    </li>
-  {{ end }}
-  </ul>
-</div>
-
-{{ partial "footer.html" . }}
+{{ define "main" }}
+  <div class="tag-list">
+    <ul class="fa-ul">
+      {{ range $key, $value := .Data.Terms.ByCount }}
+      <li>
+        <a href="{{ $value.Name | urlize }}" class="circular">
+          <span class="fa-li"><i class="fas fa-tag fa-fw"></i></span>
+          {{ $value.Name }}
+        </a>
+        <span>&#40;{{ $value.Count }}&#41;</span>
+      </li>
+    {{ end }}
+    </ul>
+  </div>
+{{ end }}

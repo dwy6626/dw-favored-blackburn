@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+  <div id="layout">
+    {{ partial "sidemenu.html" . }}
+
+    <div id="main">
+      <div class="header">
+        {{ block "header" . }}
+          <h1>
+            {{ block "title" . }}
+              {{ .Title }}
+            {{ end }}
+          </h1>
+          <h2>
+            {{ .Description }}
+          </h2>
+        {{ end }}
+      </div>
+      <div class="content">
+        {{ block "main" . }}
+          {{ with .Site.GetPage "section" "post" }}
+            {{ range .RegularPages.GroupByDate "2006" }}
+              <h2>{{ .Key }}</h2>
+              <ul>
+                  {{ range .Pages }}
+                    {{ .Render "li" }}
+                  {{ end }}
+              </ul>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+  {{ partial "footer.html" . }}
+
+  </body>
+</html>

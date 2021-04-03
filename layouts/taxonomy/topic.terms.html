@@ -1,9 +1,8 @@
-{{ partial "header.html" . }}
+{{ define "title" }}
+  {{ T .Title }}
+{{ end }}
 
-<div class="header">
-  <h1>{{ T .Title }}</h1>
-</div>
-<div class="content">
+{{ define "main" }}
   {{ range $key, $value := .Data.Terms.ByCount }}
   <h2>
     <i class="fas fa-folder fa-fw"></i>
@@ -22,6 +21,4 @@
         {{ end }}
     </ul>
   {{ end }}
-</div>
-
-{{ partial "footer.html" . }}
+{{ end }}
