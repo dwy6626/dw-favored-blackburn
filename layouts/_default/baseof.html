@@ -20,6 +20,9 @@
           </h2>
         {{ end }}
       </div>
+      <div class="aside-container">
+        {{ block "aside" . }}{{ end }}
+      </div>
       <div class="content">
         {{ block "main" . }}
           {{ with .Site.GetPage "section" "post" }}

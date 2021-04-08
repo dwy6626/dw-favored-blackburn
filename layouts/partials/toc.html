@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="/css/aside-toc.css" media="screen">
+<script src="{{ .Site.BaseURL }}js/toc.js"></script>
+<div class="toc">
+  <aside>
+    <summary>{{ T "toc" }}</summary>
+    <div class="toc-item">
+      <p><a rel='tag' href="#">{{ .Title }}</a></p>
+      {{ .TableOfContents }}
+    </div>
+  </aside>
+</div>

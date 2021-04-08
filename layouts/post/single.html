@@ -1,6 +1,20 @@
 {{ define "main" }}
   {{ partial "post_meta.html" . }}
 
+  <div id="toc-top" style="display: none;">
+    {{ if .Site.Params.toc }}
+      <div class="toc">
+        <aside>
+          <details>
+            <summary>{{ T "toc" }}</summary>
+            <div class="toc-item">
+              {{ .TableOfContents }}
+            </div>
+          </details>
+        </aside>
+      </div>
+    {{ end }}
+  </div>
   {{ .Content }}
 
   <div class="copyright">
@@ -13,4 +27,12 @@
   {{ partial "commento.html" . }}
   {{ partial "disqus.html" . }}
   {{ partial "telegram.html" . }}
+{{ end }}
+
+{{ define "aside" }}
+  <div id="toc-aside" style="display: none;">
+    {{ if .Site.Params.toc }}
+      {{ partial "toc.html" . }}
+    {{ end }}
+  </div>
 {{ end }}

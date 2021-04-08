@@ -25,3 +25,6 @@
 
 [Copyright-End]
   other = '.'
+
+[toc]
+  other= 'Table of Contents'

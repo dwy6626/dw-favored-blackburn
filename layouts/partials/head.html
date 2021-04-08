@@ -1,7 +1,16 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ if .IsNode }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+  <meta name="description" content="
+  {{ if .IsNode }}
+    {{ with .Site.Params.description }}
+      {{ . }}
+    {{ end }}
+    {{ else if .Description }}
+      {{ .Description }}
+    {{ else }}
+      {{ .Summary }}
+    {{ end }}">
   {{hugo.Generator}}
 
   <meta property="og:title" content="{{ .Title }}" />
@@ -20,10 +29,8 @@
   <meta name="twitter:creator" content="{{ .Site.Params.Brand }}">
   {{ if eq .Type "post"}}
     <meta name="twitter:description" content="{{ .Summary }}" />
-    <!-- <meta property="og:description" content="{{ .Summary }}" /> -->
   {{ else }}
     <meta name="twitter:description" content="{{ .Site.Params.Subtitle }}" />
-    <!-- <meta property="og:description" content="{{ .Site.Params.Subtitle }}" /> -->
   {{ end }}
 
   <!-- Preconnect to required origins -->
@@ -53,6 +60,7 @@
   <link rel="stylesheet" href="/css/blackburn.css" media="screen">
   <link rel="stylesheet" href="/css/dw-burn.css" media="screen">
   <link rel="stylesheet" href="/css/dw-menu.css" media="screen">
+  <link rel="stylesheet" href="/css/vars.css" media="screen">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -95,4 +103,6 @@
     {{ end }}
   {{ end }}
   {{ partial "extra_header.html" . }}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
