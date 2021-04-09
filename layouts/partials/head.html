@@ -40,22 +40,11 @@
   <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
 
   <!-- CSS -->
-  {{ $purecss := "https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/" }}
+  {{ $purecss := "https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.5/" }}
   <link rel="stylesheet" href="{{ $purecss }}pure-min.css" media="screen">
 
-  {{ "<!--[if lte IE 8]>" | safeHTML }}
-  <link async rel="stylesheet" href="{{ $purecss }}grids-responsive-old-ie-min.css" media="screen">
-  {{ "<![endif]-->" | safeHTML }}
-  {{ "<!--[if gt IE 8]><!-->" | safeHTML }}
   <link rel="stylesheet" href="{{ $purecss }}grids-responsive-min.css" media="screen">
-  {{ "<!--<![endif]-->" | safeHTML }}
-
-  {{ "<!--[if lte IE 8]>" | safeHTML }}
-  <link rel="stylesheet" href="/css/side-menu-old-ie.css" media="screen">
-  {{ "<![endif]-->" | safeHTML }}
-  {{ "<!--[if gt IE 8]><!-->" | safeHTML }}
   <link rel="stylesheet" href="/css/side-menu.css" media="screen">
-  {{ "<!--<![endif]-->" | safeHTML }}
 
   <link rel="stylesheet" href="/css/blackburn.css" media="screen">
   <link rel="stylesheet" href="/css/dw-burn.css" media="screen">

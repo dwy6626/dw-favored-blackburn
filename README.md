@@ -8,6 +8,7 @@ The test version is `0.74.3`
 
 some important things:
 
+- Adaptive table of contents block
 - All images are responsive now! (no need to add `fluid_img` shortcode for every images)
 - [Make the side menu scrollable](https://github.com/yoshiharuyamashita/blackburn/issues/92)
 - [Reading Time](https://github.com/yoshiharuyamashita/blackburn/issues/89)
@@ -37,7 +38,7 @@ a clear and responsive theme for [Hugo](//gohugo.io).
 
 ## Overview
 
-* Based on Yahoo's [Pure CSS](http://purecss.io/) (v1.0.0)
+* Based on Yahoo's [Pure CSS](http://purecss.io/) (v2.0.5)
 * Social links: (I delete a lot link lol)
   * LinkedIn
   - LeetCode
@@ -101,6 +102,13 @@ Refers to https://github.com/dwy6626/dw-favored-blackburn-example/blob/master/co
 ```toml
 [params]
   custom_js = ["js/my.js", "https://cdnjs.cloudflare.com/ajax/libs/zooming/1.4.2/zooming.min.js"]
+```
+
+* Enable table of content:
+
+```toml
+[params]
+  toc = true
 ```
 
 ## Shortcodes
