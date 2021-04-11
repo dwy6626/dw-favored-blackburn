@@ -1,0 +1,17 @@
+name: Update Example Site
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-sample-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DW_PAT }}
+          repository: dwy6626/dw-favored-blackburn-example
+          event-type: theme-trigger
