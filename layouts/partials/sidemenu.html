@@ -9,9 +9,22 @@
   <div class="pure-menu">
     <ul class="pure-menu-list">
       {{ range .Site.Menus.main }}
-        <li class="pure-menu-item">
-            <a class="pure-menu-link" href="{{ .URL | relLangURL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
-        </li>
+        {{ if .HasChildren }}
+          <li class="pure-menu-item pure-menu-has-children">
+            <a class="pure-menu-link" href="#" aria-label='open sub menu'>{{ .Pre }}<span>{{ .Name }}</span></a>
+            <ul class="pure-menu-children">
+              {{ range .Children }}
+                <li class="pure-menu-item">
+                  <a class="pure-menu-link" href="{{ .URL | relLangURL }}" aria-label='go to menu link'>{{ .Name }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </li>
+        {{else}}
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="{{ .URL | relLangURL }}" aria-label='go to menu link'>{{ .Pre }}<span>{{ .Name }}</span></a>
+          </li>
+        {{end}}
       {{end}}
     </ul>
   </div>
