@@ -1,5 +1,10 @@
-<script src="{{ .Site.BaseURL }}js/ui.js"></script>
-<script src="{{ .Site.BaseURL }}js/menus.js"></script>
+{{ $uiJs := resources.Get "js/ui.js" }}
+{{ $menusJs := resources.Get "js/menus.js" }}
+{{ $tocJs := resources.Get "js/toc.js" }}
+
+{{ $js := slice $uiJs $menusJs $tocJs | resources.Concat "js/bundle.js" | resources.Minify | fingerprint }}
+
+<script src="{{ $js.Permalink }}"></script>
 
 {{ partial "goatcounter_analytics.html" . }}
 {{ partial "google_analytics.html" . }}

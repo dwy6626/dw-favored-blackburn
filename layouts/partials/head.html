@@ -42,15 +42,19 @@
   <!-- CSS -->
   {{ $purecss := "https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.5/" }}
   <link rel="stylesheet" href="{{ $purecss }}pure-min.css" media="screen">
-
   <link rel="stylesheet" href="{{ $purecss }}grids-responsive-min.css" media="screen">
-  <link rel="stylesheet" href="/css/side-menu.css" media="screen">
 
-  <link rel="stylesheet" href="/css/blackburn.css" media="screen">
-  <link rel="stylesheet" href="/css/dw-burn.css" media="screen">
-  <link rel="stylesheet" href="/css/dw-menu.css" media="screen">
-  <link rel="stylesheet" href="/css/vars.css" media="screen">
-  <link rel="stylesheet" href="/css/menu-x.css" media="screen">
+  {{ $menu := resources.Get "css/side-menu.css" }}
+  {{ $blackburn := resources.Get "css/blackburn.css" }}
+  {{ $dw_burn := resources.Get "css/dw-burn.css" }}
+  {{ $dw_menu := resources.Get "css/dw-menu.css" }}
+  {{ $css_vars := resources.Get "css/vars.css" }}
+  {{ $menu_x := resources.Get "css/menu-x.css" }}
+  {{ $toc := resources.Get "css/aside-toc.css" }}
+
+  {{ $css := slice $menu $blackburn $dw_burn $dw_menu $css_vars $menu_x $toc | resources.Concat "css/bundle.css" | minify | fingerprint }}
+
+  <link rel="stylesheet" href="{{ $css.Permalink }}" media="screen">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
