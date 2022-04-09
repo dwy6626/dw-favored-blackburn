@@ -17,6 +17,8 @@
   </div>
   {{ .Content }}
 
+  {{ partial "likeland.html" . }}
+
   <div class="copyright">
     {{ T "Copyright-Head" }}
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">{{ T "Copyright-Body" }}</a>
@@ -24,7 +26,6 @@
   </div>
 
   {{ partial "prev_next_post.html" . }}
-  {{ partial "likeland.html" . }}
   {{ partial "telegram.html" . }}
   {{ partial "commento.html" . }}
   {{ partial "disqus.html" . }}
