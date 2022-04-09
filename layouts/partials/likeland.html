@@ -1,0 +1,8 @@
+{{ if .Site.Params.likeCoinId }}
+  <div
+    class="likecoin-embed likecoin-button"
+    data-liker-id="{{ .Site.Params.likeCoinId }}"
+    data-href="{{ .Permalink }}">
+  </div>
+  <script src="https://static.like.co/sdk/v1/button.js"></script>
+{{ end }}
