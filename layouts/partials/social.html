@@ -2,19 +2,19 @@
 <div class="pure-menu social">
     <ul class="pure-menu-list">
 
-      {{ with .Site.Social.linkedin }}
+      {{ with .Site.Params.social.linkedin }}
       <li class="pure-menu-item">
         <a class="pure-menu-link" href="https://linkedin.com/in/{{ . }}" rel="me external noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i><span>LinkedIn</span></a>
       </li>
       {{ end }}
   
-      {{ with .Site.Social.github }}
+      {{ with .Site.Params.social.github }}
       <li class="pure-menu-item">
         <a class="pure-menu-link" href="https://github.com/{{ . }}" rel="me external noopener" target="_blank"><i class="fab fa-github-square fa-fw"></i><span>GitHub</span></a>
       </li>
       {{ end }}
 
-      {{ with .Site.Social.leetcode }}
+      {{ with .Site.Params.social.leetcode }}
       <li class="pure-menu-item">
         <a class="pure-menu-link" href="https://leetcode.com/{{ . }}" rel="me external noopener" target="_blank"><i class="fas fa-laptop-code fa-fw"></i><span>LeetCode</span></a>
       </li>
